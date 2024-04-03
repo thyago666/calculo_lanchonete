@@ -1,0 +1,5 @@
+ao aditar o ingrediente, deposi que grava ir para alguma tela
+
+colocar em ordem alfabetica o campo select dos ingredientes
+
+colocar unidade de medida nesse caminho http://127.0.0.1:8000/cadastro/item/53
