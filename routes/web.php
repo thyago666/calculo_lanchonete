@@ -85,11 +85,11 @@ Route::get('/alterar/fat/config/{id}', [App\Http\Controllers\faturamentoControll
 Route::post('/update/fat/config/{id}', [App\Http\Controllers\faturamentoController::class,'update']);
 Route::get('fat/config/', [App\Http\Controllers\faturamentoController::class,'index'])->name('indexFaturamento');
 
-Route::get('/create/ifood/config', [App\Http\Controllers\IfoodController::class,'create']);
-Route::post('/insert/ifood/config', [App\Http\Controllers\IfoodController::class,'insert']);
-Route::get('/delete/ifood/config/{id}', [App\Http\Controllers\IfoodController::class,'delete']);
-Route::get('/alterar/ifood/config/{id}', [App\Http\Controllers\IfoodController::class,'alterar']);
-Route::post('/update/ifood/config/{id}', [App\Http\Controllers\IfoodController::class,'update']);
+Route::get('/create/ifood/config', [App\Http\Controllers\ifoodController::class,'create']);
+Route::post('/insert/ifood/config', [App\Http\Controllers\ifoodController::class,'insert']);
+Route::get('/delete/ifood/config/{id}', [App\Http\Controllers\ifoodController::class,'delete']);
+Route::get('/alterar/ifood/config/{id}', [App\Http\Controllers\ifoodController::class,'alterar']);
+Route::post('/update/ifood/config/{id}', [App\Http\Controllers\ifoodController::class,'update']);
 
 Route::get('/create/iqfome/config', [App\Http\Controllers\iqfomeController::class,'create']);
 Route::post('/insert/iqfome/config', [App\Http\Controllers\iqfomeController::class,'insert']);
