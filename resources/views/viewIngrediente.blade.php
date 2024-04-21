@@ -15,9 +15,9 @@
       <a href="{{url("/cadastro/ingrediente")}}"> <button type="button" class="btn btn-success">+ Incluir</button></a>
       <a href="{{url("/")}}"> <button type="button" class="btn btn-warning">Voltar</button></a>
       <br>      <br> 
-    <table class="table">
+    <table class="table" >
         <thead>
-          <tr>
+          <tr align="center">
             <th scope="col">#</th>
             <th scope="col">Descrição</th>
             <th scope="col">Unidade de Medida</th>
@@ -28,7 +28,7 @@
         <tbody>
 
             @foreach($ingredientes as $ingrediente)
-          <tr>
+          <tr align="center">
             <th scope="row">{{$ingrediente->id}}</th>
             <td>{{$ingrediente->descricao}}</td>
             <td>{{$ingrediente->unidMedida}}</td>
@@ -37,7 +37,8 @@
  
                 <td>
         <a href="{{url("/edit/ingrediente/$ingrediente->id")}}"><button type="button" class="btn btn-primary">Alterar</button></a>
-                  </td>
+        <a href="{{url("/delete/ingrediente/$ingrediente->id")}}"><button type="button" class="btn btn-danger">Excluir</button></a>           
+      </td>
             </tr>
          @endforeach
        

@@ -43,7 +43,7 @@
           <label for="qtd"><b>Quantidade</b></label>
           <input type="TEXT" class="form-control" id="qtd" name="qtd">
           <small id="descricao" class="form-text text-muted">
-            Informe aqui a quantidade que você comprou desse ingrediente <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="EX: 1KG (informe 1000), 1LT (informe 1000), 100GR (informe 100), 10UN (informe 10)">
+            Informe aqui a quantidade que você comprou desse ingrediente <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="EX: 1KG (informe 1000), 1LT (informe 1), 100GR (informe 100), 10UN (informe 10)">
   ?
 </button> </small>
         </div>

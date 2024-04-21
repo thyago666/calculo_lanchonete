@@ -21,10 +21,12 @@
             <label for="tipo"><b>Tipo</b></label>
             <select class="form-control" id="tipo" name="tipo">
   
-              <option value="Lanche">Lanche</option>
-              <option value="Porcao">Porção</option>
-              <option value="Combo">Combo</option>
-              <option value="Pizza">Ingrediente</option>
+              <option value="lanche">Lanche</option>
+              <option value="porcao">Porção</option>
+              <option value="combo">Combo</option>
+              <option value="marmitex">Marmitex</option>
+              <option value="pf">Prato Feito</option>
+              <option value="ingrediente">Ingrediente</option>
        
               </select>
           </div>

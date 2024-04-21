@@ -17,7 +17,7 @@
       <br>      <br>
     <table class="table">
         <thead>
-          <tr>
+          <tr align="center">
             <th scope="col">#</th>
             <th scope="col">Descrição</th>
              <th scope="col">Valor</th>
@@ -27,7 +27,7 @@
         <tbody>
 
             @foreach($acessorios as $acessorio)
-          <tr>
+          <tr align="center">
             <th scope="row">{{$acessorio->id}}</th>
             <td>{{$acessorio->descricao}}</td>
       
@@ -35,6 +35,7 @@
  
                 <td>
         <a href="{{url("/edit/acessorios/$acessorio->id")}}"><button type="button" class="btn btn-primary">Alterar</button></a>
+        <a href="{{url("/delete/acessorios/$acessorio->id")}}"><button type="button" class="btn btn-danger">Excluir</button></a>
                   </td>
             </tr>
          @endforeach

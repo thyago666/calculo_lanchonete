@@ -56,35 +56,26 @@
       <button type="submit" class="btn btn-warning">Importar</button></a>
     </div>
     </form>
-
-
     <table class="table">
         <thead>
-          <tr>
+          <tr align="center">
             <th scope="col">#</th>
             <th scope="col">Descrição</th>
             <th scope="col">Qtd</th>
             <th scope="col">Valor</th>
             <th scope="col">Opções</th>
-        
           </tr>
         </thead>
         <tbody>
-
-
             @foreach($itens as $item)
-          
-          <tr>
+          <tr align="center">
             <th scope="row">{{$item->id}}</th>
             <td>{{$item->descricao}}</td>
             <td>{{$item->qtd}}</td>
             <td>{{  'R$ '.number_format($item->vl_unit*$item->qtd, 2, ',', '.') }}</td>
            <td> <a href="{{url("/delete/item-acessorio/$item->id_item/$item->id_produto")}}"><button type="button" class="btn btn-danger">Excluir</button></a></td>
           </tr>
-     
-          
- 
-            </tr>
+           </tr>
                 @endforeach
          </tbody>
       </table>

@@ -71,7 +71,8 @@ class entradaController extends Controller
 
             }*/
         elseif($request->unid_medida == 'lt'){
-            $atual = ($request->valor_total*$request->qtd)/$request->qtd;
+           // $atual = ($request->valor_total*$request->qtd)/$request->qtd;
+           $atual = ($request->valor_total/$request->qtd);
 
         }
          $ingredientes->valor = $atual;

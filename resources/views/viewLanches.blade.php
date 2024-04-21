@@ -145,12 +145,38 @@
 <table class="table">
     <thead class="bg-warning">
       <tr>
-        <th scope="col"> Valor Venda = 
-           {{  'R$ '.number_format($custo_produto*2, 2, ',', '.') }}</th>
+        <th scope="col"> Valor Venda Loja = 
+           {{  'R$ '.number_format($custo_produto*$valorMarkup, 2, ',', '.') }}</th>
       
       </tr>
     </thead>
 </table>
+
+@foreach($parametros as $params)
+ @if($params->id == 1 and $params->opcao == 'Sim')
+<table class="table">
+    <thead class="bg-danger">
+      <tr>
+        <th scope="col"> Valor Venda Ifood = 
+           {{  'R$ '.number_format($custo_produto*$valorMarkupIfood, 2, ',', '.') }}</th>
+        </tr>
+      </thead>
+</table>
+@endif
+
+@if($params->id == 2 and $params->opcao == 'Sim')
+      <table class="table">
+    <thead class="bg-info">
+      <tr>
+        <th scope="col"> Valor Venda Iqfome = 
+           {{  'R$ '.number_format($custo_produto*$valorMarkupIqfome, 2, ',', '.') }}</th>
+         </tr>
+    </thead>
+    </table>
+    @endif
+    @endforeach
+   
+
   <br>
 </div>
 </body>

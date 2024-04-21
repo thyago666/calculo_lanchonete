@@ -11,37 +11,21 @@ use DB;
 class itemAcessorioController extends Controller
 {
     public function index(Request $request){
-
-        $psq=$request->selectLanche;
-       
-        
+      $psq=$request->selectLanche;
       $lanches = Produto::all();
-
-   
-  
       $dados = DB::select('select ace.*,ace.descricao as ace_descricao,pr.*, pr.descricao as desc_prod,it.*
       FROM itens_acessorios it, acessorios ace, produtos pr 
       WHERE ace.id=it.id_acessorio and pr.id=it.id_produto');
-  
-  return view('viewLanches',compact('dados','lanches','psq'));
-  
-     }
+        return view('viewLanches',compact('dados','lanches','psq'));
+      }
   
      public function create($id){
-  
-     /* $importar = DB::select('SELECT DISTINCT(pr.descricao), pr.id
-      FROM itens_acessorios ia, produtos pr WHERE pr.id=ia.id_produto');*/
-
-$importar = DB::table('itens_acessorios as ia')
-->join('produtos as pr', 'pr.id', '=', 'ia.id_produto')
-->select('pr.descricao', 'pr.id')
-->distinct()
-->get();
-
-  
-        /*$itens = DB::select('SELECT it.*, it.id as id_item, ace.*, ace.valor as vl_unit
-         FROM itens_acessorios it, acessorios ace WHERE it.id_acessorio = ace.id and it.id_produto = ?',[$id]);*/
-         
+              $importar = DB::table('itens_acessorios as ia')
+              ->join('produtos as pr', 'pr.id', '=', 'ia.id_produto')
+              ->select('pr.descricao', 'pr.id')
+              ->distinct()
+              ->get();
+ 
          $itens = DB::table('itens_acessorios as it')
          ->join('acessorios as ace', 'it.id_acessorio', '=', 'ace.id')
          ->select('it.*', 'it.id as id_item', 'ace.*', 'ace.valor as vl_unit')
@@ -55,33 +39,22 @@ $importar = DB::table('itens_acessorios as ia')
      }
   
         public function insert(Request $request){
-   
-           $dados = new ItemAcessorio([
-                'id_acessorio'=>$request->acessorios,
+              $dados = new ItemAcessorio([
+              'id_acessorio'=>$request->acessorios,
               'id_produto'=>$request->produto,
               'qtd'=>$request->qtd
           ]);
               $dados->save();
-             return $this->create($request->produto);
+            // return $this->create($request->produto);
+            return redirect("cadastro/item-acessorio/$request->produto");
         }
 
         public function insertImportacao(Request $request){
-
-   
-
-
          $id=$request->selectLanche;//id do lanche do campo select, que é referencia da importacao
          $id_produto=$request->produto;//id do produto que ira receber a importacao
-
-
-
          $dadosImportacao = DB::select('SELECT i.* 
          FROM itens_acessorios i WHERE i.id_produto = ?',[$id]);
-
-       
-       
-         //$dadosImportacao = ItemAcessorio::where('id_produto','$id')->get();
-           
+ 
          foreach($dadosImportacao as $dadosImportacoes)
          {
          $dados = new ItemAcessorio([
@@ -91,19 +64,15 @@ $importar = DB::table('itens_acessorios as ia')
         ]);
             $dados->save();
       }
-
-
-
-           return $this->create($id_produto);
+          // return $this->create($id_produto);
+          return redirect("cadastro/item-acessorio/$id_produto");
       }
   
         public function delete(Request $request, $id,$id_produto){
-  
-          
               $item = ItemAcessorio::find($id);
               $item->delete();
-              return $this->create($id_produto);
-  
-        }
+              return redirect("cadastro/item-acessorio/$id_produto");
+             // return $this->create($id_produto);
+         }
      
 }

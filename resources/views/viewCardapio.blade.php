@@ -17,11 +17,11 @@
 
 
 @for($i=1; $i <= $countProdutos*2; $i++)
-
-    @foreach($resultado as $item)
+@foreach($resultado as $item)
 
 
 @if($item->idProd == $i)
+
 
             @if($lastDescProd !== $item->desc_prod)
             <hr>
@@ -72,10 +72,11 @@
             @endif
         @endforeach
   
-
     @if($total_ingredientes != 0 or $total_acessorio != 0)
     <br><br>
-    <b>  Valor: {{  'R$ '.number_format(($total_ingredientes+$total_acessorio)*2, 2, ',', '.') }}</b>
+    <b>  Valor Loja: {{  'R$ '.number_format(($total_ingredientes+$total_acessorio)*$markup, 2, ',', '.') }}</b></br>
+    <b>  Valor Ifood: {{  'R$ '.number_format(($total_ingredientes+$total_acessorio)*$markupIfood, 2, ',', '.') }}</b></br>
+    <b>  Valor Iqfome: {{  'R$ '.number_format(($total_ingredientes+$total_acessorio)*$markupIqfome, 2, ',', '.') }}</b>
     @php
     $total_ingredientes = 0;
     $total_acessorio = 0;

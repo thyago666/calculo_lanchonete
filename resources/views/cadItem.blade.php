@@ -300,6 +300,7 @@
            </select>
       </div>
 
+      <!-- quando o ingrediente for oleo aparece esses selects -->
      <div class="form-group" id="fritadeiraDiv" style="display: none;">
         <label for="fritadeira"><b>Fritadeira</b></label>
         <select class="form-control" id="fritadeira" name="fritadeira" onchange="showFritadeira(this.value)">
@@ -313,7 +314,7 @@
       <div class="form-group" id="qtdOleoFritadeira" style="display: none;">
         <label for="descricao"><b>Qtd de Óleo</b></label>
         <input type="number" class="form-control" id="qtdOleoFritadeiraInput" name="qtdOleoFritadeira">
-        <small id="qtdOleoFritadeira" class="form-text text-muted"><b>Informe aqui a quantidade de óleo que vai na sua fritadeira</b></small>
+        <small id="qtdOleoFritadeira" class="form-text text-muted"><b>Informe aqui a quantidade de óleo que vai na sua fritadeira, Ex: 20 un</b></small>
       </div>
 
       <div class="form-group" id="qtdPorcaoFritadeira" style="display: none;">
@@ -321,6 +322,7 @@
         <input type="number" class="form-control" id="qtdPorcaoFritadeiraInput" name="qtdPorcaoFritadeira">
         <small id="qtdPorcaoFritadeira" class="form-text text-muted"><b>Informe aqui a quantidade de porção que esse óleo consegue fritar</b></small>
       </div>
+        <!-- fim -->
    
       <div class="form-group" id="qtdDiv">
         <label for="descricao"><b>Qtd</b></label>
@@ -348,13 +350,11 @@
         </thead>
         <tbody>
           @php
-  
   $resul = 0;
   $total = 0;
   $valor_cada_porcao = 0;
   @endphp
-  
-            @foreach($itens as $item)
+              @foreach($itens as $item)
           
           <tr>
             <th scope="row">{{$item->id}}</th>
@@ -418,19 +418,17 @@
         var qtdPorcaoFritadeira = document.getElementById("qtdPorcaoFritadeira");
         var qtdOleoFritadeira = document.getElementById("qtdOleoFritadeira");
         
-        if (value == 76) {
+        if (value == 9) {
             fritadeiraDiv.style.display = "block";
             fritadeiraSelect.required = true;
             qtdInput.style.display = "block";
-
             qtdOleoFritadeira.style.display = "block";
             qtdPorcaoFritadeira.style.display = "block";
 
           } else {
             fritadeiraDiv.style.display = "none";
             fritadeiraSelect.required = false;
-            qtdInput.style.display = "none";
-
+            qtdInput.style.display = "block";
             qtdOleoFritadeira.style.display = "none";
             qtdPorcaoFritadeira.style.display = "none";
           
